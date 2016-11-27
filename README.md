@@ -1,5 +1,3 @@
-# Minimal web-application based on T4 framework
+1. screenshot of phing's log is here : ./running_build.jpg
 
-Use 
-<code>composer create-project pr-of-it/t4-app-mini --stability="dev"</code>
-to install this application
+2. use junction.exe (openserver/bin) to remove symlink.
