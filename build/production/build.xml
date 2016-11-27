@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="php-3" default="build" basedir=".">
+    <target name="build" depends="vars, copy, composer" />
+
+    <target name="vars">
+        <resolvepath propertyName="target.dir" file="F:\OpenServer\domains\PHP\PHP-3\test_dir" />
+        <echo msg="Project dir: ${target.dir}" />
+    </target>
+
+    <target name="copy">
+
+    </target>
+
+    <target name="composer">
+
+    </target>
+
+</project>
