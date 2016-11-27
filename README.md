@@ -2,4 +2,4 @@
 
 2. use junction.exe (openserver/bin) to remove symlink.
 
-3. server search domain in test_dir/current directory
+3. server searches domain in test_dir/current directory
