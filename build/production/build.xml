@@ -5,6 +5,7 @@
     <target name="vars">
         <property name="domain" value="php-3.local" />
         <echo msg="Domain name: ${domain}" />
+        <property name="db.password" value="${params.password}" />
 
         <php returnProperty="build.time" function="date">
             <param value="Y-m-d-H-i-s" />
@@ -27,7 +28,7 @@
         <mkdir dir="${current.dir}" />
         <echo msg="Mkdir ${current.dir}" />
         <copy todir="${current.dir}">
-            <fileset dir="${project.dir}" defaultexcludes="true">
+            <fileset dir="${project.dir}" defaultexcludes="true" excludes="vendor/**">
                 <include name="**" />
             </fileset>
         </copy>
@@ -43,6 +44,7 @@
             <filterchain>
                 <replacetokens begintoken="{{" endtoken="}}">
                     <token key="domain" value="${domain}" />
+                    <token key="db.password" value="${params.password}" />
                 </replacetokens>
             </filterchain>
         </copy>
