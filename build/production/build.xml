@@ -3,7 +3,7 @@
     <target name="build" depends="vars, copy, composer, config, symlink" />
 
     <target name="vars">
-        <property name="domain" value="php-3.lical" />
+        <property name="domain" value="php-3.local" />
         <echo msg="Domain name: ${domain}" />
 
         <php returnProperty="build.time" function="date">
