@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="php-3" default="build" basedir=".">
-    <target name="build" depends="vars, copy, composer, config, symlink" />
+    <target name="build" depends="vars, copy, composer, config, migrate, symlink" />
 
     <target name="vars">
         <property name="domain" value="php-3.local" />
@@ -10,14 +10,9 @@
         <php returnProperty="build.time" function="date">
             <param value="Y-m-d-H-i-s" />
         </php>
-        <echo msg="Build time: ${build.time}" />
 
         <resolvepath propertyName="project.dir" file="${project.basedir}" />
-        <echo msg="Source dir: ${project.dir}" />
-
         <resolvepath propertyName="target.dir" file="F:\OpenServer\domains\PHP\PHP-3\test_dir" />
-        <echo msg="Project dir: ${target.dir}" />
-
         <resolvepath propertyName="current.dir" file="${target.dir}/${domain}/${build.time}/" />
         <echo msg="Current build dir: ${current.dir}" />
 
@@ -26,7 +21,6 @@
 
     <target name="copy">
         <mkdir dir="${current.dir}" />
-        <echo msg="Mkdir ${current.dir}" />
         <copy todir="${current.dir}">
             <fileset dir="${project.dir}" defaultexcludes="true" excludes="vendor/**">
                 <include name="**" />
@@ -35,7 +29,6 @@
     </target>
 
     <target name="composer">
-        <echo msg="Install composer depedencies..." />
         <exec command="composer install" dir="${current.dir}" checkreturn="true" passthru="true" />
     </target>
 
@@ -48,6 +41,10 @@
                 </replacetokens>
             </filterchain>
         </copy>
+    </target>
+
+    <target name="migrate">
+        <exec command="php protected/t4.php /migrate" dir="${current.dir}" checkreturn="true" passthru="true" />
     </target>
 
     <target name="symlink">

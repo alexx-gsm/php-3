@@ -1,0 +1,67 @@
+f:\OpenServer\domains\PHP\PHP-3\www>phing -f build/production/build.xml -Dparams.password=
+Buildfile: F:\OpenServer\domains\PHP\PHP-3\www\build\production\build.xml
+
+php-3 > vars:
+
+     [echo] Domain name: php-3.local
+      [php] Calling PHP function: date()
+     [echo] Current build dir: F:\OpenServer\domains\PHP\PHP-3\test_dir\php-3.local\2016-11-27-19-07-52
+
+php-3 > copy:
+
+    [mkdir] Created dir: F:\OpenServer\domains\PHP\PHP-3\test_dir\php-3.local\2016-11-27-19-07-52
+     [copy] Created 14 empty directories in F:\OpenServer\domains\PHP\PHP-3\test_dir\php-3.local\2016-11-27-19-07-52
+     [copy] Copying 21 files to F:\OpenServer\domains\PHP\PHP-3\test_dir\php-3.local\2016-11-27-19-07-52
+
+php-3 > composer:
+
+Loading composer repositories with package information
+Installing dependencies (including require-dev) from lock file
+  - Installing twig/twig (v1.24.0)
+    Loading from cache
+
+  - Installing psr/log (1.0.0)
+    Loading from cache
+
+  - Installing phpmailer/phpmailer (v5.2.14)
+    Loading from cache
+
+  - Installing pr-of-it/t4 (dev-master 6e38f6c)
+    Cloning 6e38f6c4c51488b3fefbc43b9202e735e06cc63b
+
+phpmailer/phpmailer suggests installing league/oauth2-client (Needed for XOAUTH2 authentication)
+phpmailer/phpmailer suggests installing league/oauth2-google (Needed for Gmail XOAUTH2)
+Generating autoload files
+
+php-3 > config:
+
+     [copy] Copying 1 file to F:\OpenServer\domains\PHP\PHP-3\test_dir\php-3.local\2016-11-27-19-07-52\protected
+
+php-3 > migrate:
+
+m_1480259628_createUsers up...
+Table `__users` is created
+Data into table __users is inserted
+m_1480259628_createUsers is up successfully
+m_1480259820_createRole up...
+Table `roles` is created
+Data into table roles is inserted
+Data into table roles is inserted
+m_1480259820_createRole is up successfully
+
+php-3 > symlink:
+
+
+Junction v1.07 - Creates and lists directory links
+Copyright (C) 2005-2016 Mark Russinovich
+Sysinternals - www.sysinternals.com
+
+Deleted F:\OpenServer\domains\PHP\PHP-3\test_dir/current.
+  [symlink] Linking: F:\OpenServer\domains\PHP\PHP-3\test_dir\php-3.local\2016-11-27-19-07-52/public to F:\OpenServer\domains\PHP\PHP-3\test_dir/current
+
+php-3 > build:
+
+
+BUILD FINISHED
+
+Total time: 33.4018 seconds

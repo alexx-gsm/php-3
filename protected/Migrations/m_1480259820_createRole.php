@@ -26,7 +26,10 @@ class m_1480259820_createRole
             'title' => 'Пользователь'
         ]);
 
-
+        $this->db->execute('
+            UPDATE __users SET __role_id=' . $adminRoleId . '
+            WHERE __id=1
+        ');
 
 
     }
