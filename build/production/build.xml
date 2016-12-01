@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="php-3" default="build" basedir=".">
-    <target name="build" depends="vars, copy, composer, config, migrate, symlink" />
+    <target name="build" depends="vars, copy, composer, config, migrate, tests, symlink" />
 
     <target name="vars">
         <property name="domain" value="php-3.local" />
@@ -33,6 +33,7 @@
     </target>
 
     <target name="config">
+        <echo msg="set config" />
         <copy file="${current.dir}/build/production/config/config.php" tofile="${current.dir}/protected/config.php" overwrite="true">
             <filterchain>
                 <replacetokens begintoken="{{" endtoken="}}">
@@ -44,7 +45,12 @@
     </target>
 
     <target name="migrate">
+        <echo msg="start migrates"/>
         <exec command="php protected/t4.php /migrate" dir="${current.dir}" checkreturn="true" passthru="true" />
+    </target>
+
+    <target name="tests">
+        <exec command="php ${project.dir}/vendor/phpunit/phpunit/phpunit --configuration ${project.dir}/tests/phpunit.xml" dir="${current.dir}" checkreturn="true" passthru="true"/>
     </target>
 
     <target name="symlink">
