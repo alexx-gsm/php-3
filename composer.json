@@ -15,5 +15,8 @@
   },
   "require": {
     "pr-of-it/t4": "dev-master"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*"
   }
 }

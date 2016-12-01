@@ -11,7 +11,9 @@ class m_1480259628_createUsers
     public function up()
     {
         $this->createTable('__users', [
-            'name'       => ['type' => 'string'],
+            'firstName'  => ['type' => 'string'],
+            'middleName' => ['type' => 'string'],
+            'lastName'   => ['type' => 'string'],
             'email'      => ['type' => 'string'],
             'password'   => ['type'=>'string'],
             'registered' => ['type' => 'date'],
